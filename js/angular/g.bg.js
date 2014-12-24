@@ -24,6 +24,14 @@ angular.module('app', ['common']).
         };
 
         var processCommand = function(text) {
+            text = (text) ? text.trim() : '';
+
+            if (text == ":settings") {
+                //special case
+                _chrome.openSettingsPage();
+                return;
+            }
+
             var urlPromise = _promise.EMPTY_STUB();
             var pairAndRequest = getPairAndRequest(text);
             var request = pairAndRequest.request;
