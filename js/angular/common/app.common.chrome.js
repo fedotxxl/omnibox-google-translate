@@ -1,5 +1,5 @@
 angular.module('common').
-    factory('_chrome', function() {
+    factory('_chrome', function($q) {
         var displayMessage = function(message, isError) {
             //custom chrome page
             // Create a simple text notification:
@@ -48,11 +48,24 @@ angular.module('common').
             });
         };
 
+        var getCurrentTabUrl = function() {
+            return $q(function(resolve, reject) {
+                //http://stackoverflow.com/questions/6718256/how-do-you-use-chrome-tabs-getcurrent-to-get-the-page-object-in-a-chrome-extensi
+                chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
+                    var tab = tabs[0];
+                    var url = (tab) ? tab.url : '';
+
+                    resolve(url);
+                });
+            });
+        };
+
         return {
             message: displayMessage,
             messageError: messageError,
             openTab: openTab,
-            openSettingsPage: openSettingsPage
+            openSettingsPage: openSettingsPage,
+            getCurrentTabUrl: getCurrentTabUrl
         }
     }).
     factory('_chromeCommonService', function() {

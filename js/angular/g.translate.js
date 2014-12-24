@@ -8,13 +8,18 @@ angular.module('app').
             return "https://translate.google.com/#" + from + "|" + to + "|" + text
         };
 
+        var getPageTranslationUrl = function(from, to, url) {
+            return "https://translate.google.com/translate?sl=" + from + "&tl=" + to + "&u=" + encodeURIComponent(url)
+        };
+
         var getLangs = function() {
             return langs;
         };
 
         return {
             getLangs: getLangs,
-            getTranslationUrl: getTranslationUrl
+            getTranslationUrl: getTranslationUrl,
+            getPageTranslationUrl: getPageTranslationUrl
         }
     }).
     run(function(_chromeCommonService, _g) {
