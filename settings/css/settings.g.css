@@ -1,0 +1,79 @@
+header h1 {
+    line-height: 18px;
+}
+
+header .m-header-saved {
+    float: right;
+    margin: 0;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+p {
+    margin: 10px 0;
+}
+
+h2 {
+    padding: 21px 0 13px;
+    margin: 0;
+    border-bottom: 1px solid #EEE;
+    height: 16px;
+    color: #5C6166;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.m-flag {
+    max-width: 20px;
+    vertical-align: text-bottom;
+}
+
+.select2-chosen {
+    line-height: 28px;
+}
+
+.is-lang-pair {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.is-save {
+    display: block;
+    margin-top: 20px;
+}
+
+.m-lang-adds--add {
+    width: 65px;
+}
+
+.m-lang-adds-item {
+    margin: 10px 0;
+}
+
+input.m-lang-adds-item--prefix {
+    width: 65px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.m-lang-adds-item--remove {
+    transition: opacity 400ms;
+
+    float: right;
+    min-width: 0;
+    opacity: 0.2;
+}
+
+.m-lang-adds-item:hover .m-lang-adds-item--remove {
+    opacity: 1;
+}
+
+.m-plugins-item .m-plugins-item--logo {
+    float: left;
+    width: 48px;
+    margin-top: 5px;
+}
+
+.m-plugins-item .m-plugins-item--description {
+    margin-left: 60px;
+}

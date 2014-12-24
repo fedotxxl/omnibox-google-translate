@@ -1,0 +1,6 @@
+Translate current url
+Add Yandex Dictionary description
+Improve plugin description
+Screens
+Icons
+Add :settings command

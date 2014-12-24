@@ -1,0 +1,105 @@
+.sync-status {
+    width: 24px;
+    height: 24px;
+}
+
+.sync-status.success {
+    background: url(../img/success.png) no-repeat;
+    background-size: 24px;
+}
+
+.sync-status.failed {
+    background: url(../img/failed.png) no-repeat;
+    background-size: 24px;
+}
+
+.checkbox-group {
+    padding: 10px 0;
+}
+
+.m-message {
+  display: none;
+
+  color: green;
+  text-align: center;
+}
+
+.m-message p {
+  display: inline-block;
+
+  border: 1px solid rgb(220, 198, 72);
+  background: -webkit-linear-gradient(rgba(255, 248, 172, 0.9), rgba(255, 243, 128, 0.9));
+  border-radius: 2px;
+  padding: 4px 10px;
+  margin: 12px auto;
+  font-weight: bold;
+  max-width: 500px;
+}
+
+.m-message.is-error {
+  color: red;
+}
+
+.m-message.is-displayed {
+  display: block;
+}
+
+.mainview > *:not(.selected) {
+    display: none;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+dt {
+    float: left;
+}
+
+dd {
+    margin-left: 200px;
+    margin-bottom: 5px;
+}
+
+code {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    background-color: #eeeeee;
+    padding: 1px 5px 1px 5px;
+}
+
+.m-change-username-modal p {
+    margin-top: 0;
+}
+
+.m-change-username-modal .m-change-username-modal--buttons {
+    text-align: center;
+}
+
+.m-footer-share {
+    margin-top: 50px;
+    border-top: 1px solid #EEE;
+}
+
+.share42-item {
+    padding-left: 2px;
+}
+
+@-webkit-keyframes flash-background {
+  0% {
+    background-color: white;
+  }
+  30% {
+    background-color: #FEE689;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+.content.is-flash {
+  -webkit-animation-name: flash-background;
+  -webkit-animation-duration: 2000ms;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+}

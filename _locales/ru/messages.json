@@ -1,0 +1,11 @@
+{
+  "lang": {
+    "message": "ru"
+  },
+    "appName": {
+        "message": "Omnibox Google Translate"
+    },
+    "appDesc": {
+        "message": "Быстрый перевод текста через Omnibox (адресную строку браузера)"
+    }
+}

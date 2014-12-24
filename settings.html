@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" ng-csp>
+<head>
+    <meta charset="utf-8">
+    <title>Plugin Settings</title>
+    <link rel="stylesheet" href="settings/css/chrome-bootstrap.css">
+    <link rel="stylesheet" href="settings/css/settings.common.css">
+    <link rel="stylesheet" href="settings/css/settings.g.css">
+    <link rel="stylesheet" href="settings/css/angular-csp.css">
+
+    <script src="/js/qbaka.config.js"></script>
+    <script src="/js/libs/qbaka.js"></script>
+    <script src="/js/libs/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/libs/angular.js"></script>
+    <script type="text/javascript" src="/js/libs/angular.translate.js"></script>
+    <script type="text/javascript" src="/js/libs/underscore.min.js"></script>
+    <script src="/js/libs/chrome-bootstrap.js"></script>
+    <script src="/js/utils/utils.array-fix.js"></script>
+
+    <!-- build:js js/settings.js -->
+    <script type="text/javascript" src="/js/angular/g.common.js"></script>
+    <script type="text/javascript" src="/settings/js/g.settingsController.js"></script>
+    <script type="text/javascript" src="/js/libs/angular.safeApply.js"></script>
+    <script type="text/javascript" src="/js/angular/common/app.common.chrome.js"></script>
+    <script type="text/javascript" src="/js/angular/common/app.common.i18n.js"></script>
+    <script type="text/javascript" src="/js/angular/common/app.common.exceptionHandler.js"></script>
+    <script type="text/javascript" src="/js/angular/common/app.common.bootstrapData.js"></script>
+    <script type="text/javascript" src="/js/angular/g.env.js"></script>
+    <script type="text/javascript" src="/js/angular/i18n/g.i18n.js"></script>
+    <script type="text/javascript" src="/js/angular/i18n/g.i18n.langs.js"></script>
+    <script type="text/javascript" src="/js/angular/i18n/g.i18n.en.js"></script>
+    <script type="text/javascript" src="/js/angular/i18n/g.i18n.ru.js"></script>
+    <script type="text/javascript" src="/settings/js/share42.js"></script>
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="settings/select2/select2.css">
+    <script type="text/javascript" src="settings/select2/select2.js"></script>
+    <script type="text/javascript" src="settings/select2/angular.select2.js"></script>
+</head>
+
+<body class="frame" ng-controller="SettingsBaseController">
+
+<div class="navigation">
+    <h1>hashMem.com</h1>
+    <ul class="menu">
+        <li><a href="#main" class="menu-selector" translate="omni.settings.menu.main"></a></li>
+        <li><a href="#advanced" class="menu-selector" translate="omni.settings.menu.advanced"></a></li>
+        <li><a href="{{rateItUrl}}" target="_blank" class="external" translate="omni.settings.menu.rateIt"></a></li>
+    </ul>
+</div>
+
+<div class="mainview view">
+    <div id="main" ng-controller="SettingsMainController">
+        <header>
+            <h1>{{'omni.settings.main.label' | translate}} <p class="m-header-saved" ng-show="saved">{{'omni.settings.saved' | translate}}: <span>{{saved}}</span></p></h1>
+        </header>
+        <div class="content">
+            <p translate="omni.settings.main.text"></p>
+
+            <div>
+                <select ui-select2="select2Options" ng-model="default.from">
+                    <option ng-repeat="lang in langs" value="{{lang.id}}">{{lang.text}}</option>
+                </select>
+
+                <span>-&gt;</span>
+
+                <select ui-select2="select2Options" ng-model="default.to">
+                    <option ng-repeat="lang in langs" value="{{lang.id}}">{{lang.text}}</option>
+                </select>
+            </div>
+
+            <div class="is-save">
+                <button ng-click="save()" translate="omni.settings.buttons.save" ng-disabled="!isStateChanged()" class="ng-scope" disabled="disabled">Save</button>
+            </div>
+        </div>
+
+        @@include('./settings/_plugins.html')
+        @@include('./settings/_share.html')
+    </div>
+    <div id="advanced" class="m-lang-adds" ng-controller="SettingsAdvancedController">
+        <header>
+            <h1>{{'omni.settings.advanced.label' | translate}} <p class="m-header-saved" ng-show="saved">{{'omni.settings.saved' | translate}}: <span>{{saved}}</span></p></h1>
+        </header>
+        <div class="content">
+            <p translate="omni.settings.advanced.text"></p>
+            <ul>
+                <li class="m-lang-adds-item" ng-repeat="pair in pairs">
+                    <input type="text" class="m-lang-adds-item--prefix" placeholder="{{'omni.settings.advanced.placeholder' | translate}}" ng-model="pair.prefix"/>
+
+                    <div class="is-lang-pair">
+                        <select ui-select2="select2Options" ng-model="pair.from">
+                            <option ng-repeat="lang in langs" value="{{lang.id}}">{{lang.text}}</option>
+                        </select>
+
+                        <span>-&gt;</span>
+
+                        <select ui-select2="select2Options" ng-model="pair.to">
+                            <option ng-repeat="lang in langs" value="{{lang.id}}">{{lang.text}}</option>
+                        </select>
+                    </div>
+
+                    <button class="m-lang-adds-item--remove" ng-click="removePair(pair)">x</button>
+                </li>
+            </ul>
+
+            <button class="m-lang-adds--add" ng-click="addPair()">+</button>
+
+            <div class="is-save">
+                <button ng-click="save()" translate="omni.settings.buttons.save" ng-disabled="!isStateChanged()" class="ng-scope" disabled="disabled">Save</button>
+            </div>
+        </div>
+
+        @@include('./settings/_plugins.html')
+        @@include('./settings/_share.html')
+    </div>
+
+</div>
+</body>
+</html>

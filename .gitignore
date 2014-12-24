@@ -1,0 +1,22 @@
+# "temporary" build files
+target/
+out/
+build/
+
+# idea
+.idea/
+*.iws
+*.iml
+*.ipr
+
+#sass
+.sass-cache/
+
+#scss files
+#**/assets/stylesheets/scss/
+
+#npm
+node_modules/
+
+#gradle
+.gradle/
