@@ -18,6 +18,7 @@
     "manifest_version":2,
     "permissions":[
         "storage",
+        "tabs",
         "http://qbaka.com/*", "https://qbaka.com/*",
         "http://qbaka.net/*", "https://qbaka.net/*"
     ],

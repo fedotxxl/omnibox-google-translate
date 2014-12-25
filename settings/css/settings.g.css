@@ -68,6 +68,10 @@ input.m-lang-adds-item--prefix {
     opacity: 1;
 }
 
+.m-plugins-item {
+    margin-bottom: 25px;
+}
+
 .m-plugins-item .m-plugins-item--logo {
     float: left;
     width: 48px;

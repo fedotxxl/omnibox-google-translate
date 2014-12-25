@@ -1,5 +1,5 @@
 angular.module('app', ['common']).
-    factory('_omni',function (_settings, _g, _chrome, $rootScope) {
+    factory('_omni',function (_settings, _g, _chrome, $rootScope, c_utils, _promise) {
         var settings = null;
 
         var getPairForPrefix = function(prefix) {
@@ -12,16 +12,51 @@ angular.module('app', ['common']).
             }
         };
 
+        var reversePair = function(pair) {
+            return {
+                from: pair.to,
+                to: pair.from
+            }
+        };
+
         var reload = function() {
             settings = _settings.get();
         };
 
         var processCommand = function(text) {
-            var pairAndRequest = getPairAndRequest(text);
-            var pair = pairAndRequest.pair;
-            var url = _g.getTranslationUrl(pair.from, pair.to, pairAndRequest.request);
+            text = (text) ? text.trim() : '';
 
-            _chrome.openTab(url);
+            if (text == ":settings") {
+                //special case
+                _chrome.openSettingsPage();
+                return;
+            }
+
+            var urlPromise = _promise.EMPTY_STUB();
+            var pairAndRequest = getPairAndRequest(text);
+            var request = pairAndRequest.request;
+            var pair = pairAndRequest.pair;
+
+            if (request.startsWith("!")) {
+                pair = reversePair(pair);
+                request = request.substring(1);
+            }
+
+            if (request == '.') {
+                urlPromise = _chrome.getCurrentTabUrl().then(function(currentPageUrl) {
+                    if (currentPageUrl && !c_utils.isChromeUrl(currentPageUrl)) {
+                        return _g.getPageTranslationUrl(pair.from, pair.to, currentPageUrl);
+                    }
+                });
+            }
+
+            urlPromise.then(function(url) {
+                if (!url) {
+                    url = _g.getTranslationUrl(pair.from, pair.to, request);
+                }
+
+                _chrome.openTab(url);
+            });
         };
 
         var getPairAndRequest = function(text) {
