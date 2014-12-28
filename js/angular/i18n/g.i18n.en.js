@@ -30,8 +30,8 @@ angular.module('app').
                             text: "handy and quick access to your bookmarks from Omnibox <br> ★ Optimized for keyboard control<br> ★ 3-5 seconds to open bookmark<br> ★ Cloud synchronization for free"
                         },
                         yaDictionary: {
-                            link: "Omnibox Yandex Dictionaries",
-                            text: "access Yandex Dictionaries from Omnibox.<br>★ Quick way to translate words from/into Russian"
+                            link: "Omnibox Yandex Dictionary",
+                            text: "access Yandex Dictionary from Omnibox.<br>★ Quick way to translate words from/into Russian"
                         }
                     },
                     share: {
