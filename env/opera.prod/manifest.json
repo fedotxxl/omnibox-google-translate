@@ -2,7 +2,7 @@
     "name":"__MSG_appName__",
     "short_name": "hashMem.com",
     "description":"__MSG_appDesc__",
-    "version":"1.2",
+    "version":"1.2.1",
     "options_page": "settings.html",
     "default_locale": "en",
     "background":{
