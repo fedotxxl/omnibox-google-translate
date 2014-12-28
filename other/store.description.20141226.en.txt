@@ -1,0 +1,18 @@
+Quick access to Google Translate from address bar (Omnibox).
+
+★ You can specify default languages (e.g ru -> en)
+★ You can easily use reverted languages pair (en -> ru) to translate text
+★ Simple command to translate current page
+★ An ability to specify additional language pairs
+
+Do following to translate text:
+1. Select address bar (ctrl+l / ⌘+l).
+2. Type !! [prefix]text to translate (prefix is optional)
+3. Hit [enter]
+
+Possible prefixes:
+Use reverted languages pair: !
+Translate current page: .
+Translate current page + use reverted languages pair: !.
+
+All Google Translate languages are supported: Русский, English, French, Dutch, Spanish, Italian, Russian and so on.

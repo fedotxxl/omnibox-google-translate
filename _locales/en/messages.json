@@ -1,0 +1,11 @@
+{
+  "lang": {
+    "message": "en"
+  },
+  "appName": {
+    "message": "Omnibox Google Translate"
+  },
+  "appDesc": {
+      "message": "Quick access to Google Translate from Omnibox"
+  }
+}
