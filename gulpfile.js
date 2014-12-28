@@ -38,6 +38,14 @@ GLOBAL.shared = {
     gulp.task('env.chrome.prod', ['copy'], function() {
         return copyEnv("chrome.prod")
     });
+
+    gulp.task('env.opera.dev', ['copy'], function() {
+        return copyEnv("opera.dev")
+    });
+
+    gulp.task('env.opera.prod', ['copy'], function() {
+        return copyEnv("opera.prod")
+    });
 }());
 
 gulp.task('watch', function () {
