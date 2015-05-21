@@ -48,6 +48,6 @@ GLOBAL.shared = {
     });
 }());
 
-gulp.task('watch', function () {
+gulp.task('watch', ['env.chrome.dev'], function () {
     gulp.watch(["**/*.*", '!./node_modules/**', '!./build/**'], ['env.chrome.dev']);
 });

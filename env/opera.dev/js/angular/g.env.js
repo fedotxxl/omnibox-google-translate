@@ -1,7 +1,7 @@
 angular.module('common').
     value("_logDebug", true).
     value("_testExceptionHandler", false).
-    value("_qbaka", false).
+    value("_stackcare", false).
     constant('_browser', 'opera').
     factory('_privateRouter', function() {
         return {
